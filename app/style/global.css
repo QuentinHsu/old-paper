@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -32,7 +31,8 @@
     --chart-5: 27 87% 67%;
   }
 
-  .dark, :root[class~="dark"] {
+  .dark,
+  :root[class~='dark'] {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -59,7 +59,6 @@
     --chart-5: 340 75% 55%;
   }
 }
-
 
 @layer base {
   * {

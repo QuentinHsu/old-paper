@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react'
+import React from 'react'
 
 interface PageLayoutProps {
-  leftSlot: ReactNode;
-  rightSlot: ReactNode;
+  leftSlot: ReactNode
+  rightSlot: ReactNode
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({ leftSlot, rightSlot }) => {
@@ -15,7 +16,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ leftSlot, rightSlot }) => {
         {rightSlot}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PageLayout;
+export default PageLayout

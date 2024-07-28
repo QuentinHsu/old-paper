@@ -1,8 +1,8 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from "components/ui/button";
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { Button } from 'components/ui/button'
 import {
   Form,
   FormControl,
@@ -11,43 +11,43 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "components/ui/form";
+} from 'components/ui/form'
 
-import { Textarea } from 'components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup} from 'components/ui/select';
-import { Skeleton } from 'components/ui/skeleton';
+import { Textarea } from 'components/ui/textarea'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from 'components/ui/select'
+import { Skeleton } from 'components/ui/skeleton'
 
 // 定义表单的验证模式
 const formSchema = z.object({
   firstLanguage: z.string().min(1, {
-    message: "第一语言必须至少包含 1 个字符。",
+    message: '第一语言必须至少包含 1 个字符。',
   }),
   secondLanguage: z.string().min(1, {
-    message: "第二语言必须至少包含 1 个字符。",
+    message: '第二语言必须至少包含 1 个字符。',
   }),
   fontFamily: z.string().min(1, {
-    message: "字体必须至少包含 1 个字符。",
+    message: '字体必须至少包含 1 个字符。',
   }),
   layout: z.string().min(1, {
-    message: "布局必须至少包含 1 个字符。",
+    message: '布局必须至少包含 1 个字符。',
   }),
-});
+})
 
 const FormContent: React.FC = () => {
   // 初始化表单
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstLanguage: "",
-      secondLanguage: "",
-      fontFamily: "serif",
-      layout: ""
+      firstLanguage: '',
+      secondLanguage: '',
+      fontFamily: 'serif',
+      layout: '',
     },
-  });
+  })
 
   // 表单提交处理
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    console.info(values)
   }
 
   return (
@@ -60,8 +60,11 @@ const FormContent: React.FC = () => {
             <FormItem>
               <FormLabel>第一语言</FormLabel>
               <FormControl>
-                <Textarea placeholder="请输入第一语言
-                " {...field} />
+                <Textarea
+                  placeholder="请输入第一语言
+                "
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 这里是第一语言内容。
@@ -122,17 +125,17 @@ const FormContent: React.FC = () => {
                   <SelectTrigger>
                     <SelectValue placeholder="选择布局" />
                   </SelectTrigger>
-                  <SelectContent className='flex'>
+                  <SelectContent className="flex">
                     <SelectGroup>
-                      <SelectItem value="one" className='flex'>
+                      <SelectItem value="one" className="flex">
                         One
                       </SelectItem>
                       <div className="p-2">
-                        <Skeleton className="h-6 m-1 w-[50%]" >
-                          <span className='text-sm text-slate-400 p-2'>第一语言</span>
+                        <Skeleton className="h-6 m-1 w-[50%]">
+                          <span className="text-sm text-slate-400 p-2">第一语言</span>
                         </Skeleton>
                         <Skeleton className="h-6 m-1 w-[50%]">
-                          <span className='text-sm text-slate-400 p-2'>第二语言</span>
+                          <span className="text-sm text-slate-400 p-2">第二语言</span>
                         </Skeleton>
                       </div>
                     </SelectGroup>
@@ -142,10 +145,10 @@ const FormContent: React.FC = () => {
                       </SelectItem>
                       <div className="p-2">
                         <Skeleton className="h-6 m-1 w-[50%]">
-                          <span className='text-sm text-slate-400 p-2'>第二语言</span>
+                          <span className="text-sm text-slate-400 p-2">第二语言</span>
                         </Skeleton>
-                        <Skeleton className="h-6 m-1 w-[50%]" >
-                          <span className='text-sm text-slate-400 p-2'>第一语言</span>
+                        <Skeleton className="h-6 m-1 w-[50%]">
+                          <span className="text-sm text-slate-400 p-2">第一语言</span>
                         </Skeleton>
                       </div>
                     </SelectGroup>
@@ -162,7 +165,7 @@ const FormContent: React.FC = () => {
         <Button type="submit">提交</Button>
       </form>
     </Form>
-  );
-};
+  )
+}
 
-export default FormContent;
+export default FormContent

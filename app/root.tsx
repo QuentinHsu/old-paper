@@ -1,9 +1,9 @@
-import clsx from "clsx"
-import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
+import clsx from 'clsx'
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from 'remix-themes'
 
-import { themeSessionResolver } from "./sessions.server"
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "@remix-run/react"
-import { LoaderFunctionArgs } from "@remix-run/node"
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react'
+import type { LoaderFunctionArgs } from '@remix-run/node'
+import { themeSessionResolver } from './sessions.server'
 import './style/index.css'
 
 // Return the theme from the session storage using the loader
